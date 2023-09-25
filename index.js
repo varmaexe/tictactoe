@@ -20,6 +20,13 @@ const winningPositions = [
 function initGame(){
     currentPlayer = "X";
     gameGrid = ["","","","","","","","",""];
+    //update empty grid on UI
+    boxes.forEach((box,index)=> {
+        box.innerText = ""
+        boxes[index].style.pointerEvents = "all";
+        //missing something
+
+    })
     newGameBtn.classList.remove("active")
     gameInfo.innerText = `Current Player - ${currentPlayer}`;
 }
