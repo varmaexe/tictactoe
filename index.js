@@ -24,7 +24,8 @@ function initGame(){
     boxes.forEach((box,index)=> {
         box.innerText = ""
         boxes[index].style.pointerEvents = "all";
-        //missing something
+        //initialise boxes with css prop again
+        box.classList = `box box${index+1}`
 
     })
     newGameBtn.classList.remove("active")
