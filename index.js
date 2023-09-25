@@ -57,3 +57,4 @@ boxes.forEach((box, index) => {
     })
 })
 
+newGameBtn.addEventListener("click", initGame);
