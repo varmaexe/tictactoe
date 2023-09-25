@@ -36,6 +36,58 @@ function swapTurn(){
     gameInfo.innerText = `Current Player - ${currentPlayer}`;
 }
 
+function checkGameOver(){
+    let answer = "";
+
+    winningPositions.forEach((position)=>{
+        //all 3 boxes should be non emtpy and exaxtly same in value
+        if( (gameGrid[position[0]] !== "" || gameGrid[position[1]] !== "" || gameGrid[position[2]] !== "")
+        && (gameGrid[position[0]] === gameGrid[position[1]]) && (gameGrid[position[1]] === gameGrid[position[2]])){
+
+            //check winner
+            if(gameGrid[position[0]] === "x")
+                answer = "X";
+            else
+                answer = "O";
+
+            //disable pointer events
+            boxes.forEach((box)=>{
+                box.style.pointerEvents = "none";
+            })
+
+            //now we know who is the winner
+            //mark the boxes in green
+            boxes[position[0]].classList.add("win");
+            boxes[position[1]].classList.add("win");
+            boxes[position[2]].classList.add("win");
+
+        }
+    });
+
+    //display newgamebtn
+    if(answer != ""){
+        gameInfo.innerText = `Winner Player - ${answer}`;
+        newGameBtn.classList.add("active");
+        return;
+    }
+
+    //lets check for tie!
+    let fillCount = 0;
+    gameGrid.forEach((box)=>{
+        if(box !== "")
+          fillCount++;
+    });
+
+    //if fill count is 9 then tie
+    if(fillCount === 9){
+        gameInfo.innerText = "Game Tied"
+        newGameBtn.classList.add("active");
+    }
+
+
+}
+
+
 function handleClick(index){
     if(gameGrid[index] === ""){
         //update player for UI
