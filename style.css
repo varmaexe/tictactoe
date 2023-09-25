@@ -81,7 +81,7 @@
     padding: 0.5rem 3rem;
     text-align: center;
     cursor: pointer;
-    display: none;
+    /* display: none; */
 }
 
 .btn.active{
