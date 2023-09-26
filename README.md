@@ -12,15 +12,8 @@
 
 ## Demo
 
-You can play the game online by visiting the following link: [Tic-Tac-Toe Game Demo](#)
+You can play the game online by visiting the following link: https://varmaexe.github.io/tictactoe/
 
-## Screenshots
-
-![Tic-Tac-Toe Screenshot 1](screenshots/screenshot1.png)
-*Screenshot 1: The game board at the start of a new game.*
-
-![Tic-Tac-Toe Screenshot 2](screenshots/screenshot2.png)
-*Screenshot 2: The game board during gameplay.*
 
 ## Getting Started
 
@@ -29,7 +22,7 @@ To run this game locally, follow these steps:
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/your-username/tic-tac-toe.git
+   git clone https://github.com/your-username/tictactoe.git
    ```   
 2. Open the index.html file in your preferred web browser.
 3. Enjoy playing the Tic-Tac-Toe game!
@@ -49,4 +42,4 @@ This project was built using the following technologies:
 We welcome contributions from the community to improve and enhance this Tic-Tac-Toe game. If you'd like to contribute, please follow these guidelines:
 
 
-## Thank you for checking out this project :)
+Thank you for checking out this project :)
