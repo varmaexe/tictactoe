@@ -53,10 +53,10 @@ function checkGameOver(){
         && (gameGrid[position[0]] === gameGrid[position[1]]) && (gameGrid[position[1]] === gameGrid[position[2]])){
 
             //check winner
-            if(gameGrid[position[0]] === "x")
-                answer = "X";
-            else
+            if(gameGrid[position[0]] === "O")
                 answer = "O";
+            else
+                answer = "X";
 
             //disable pointer events
             boxes.forEach((box)=>{
@@ -76,7 +76,12 @@ function checkGameOver(){
     if(answer != ""){
         gameInfo.innerText = `Winner Player - ${answer}`;
         newGameBtn.classList.add("active");
+        newGameBtn.innerText="New Game";
+        newGameBtn.disabled=false;
         return;
+    }else{
+        newGameBtn.innerText="";
+        newGameBtn.disabled=true;
     }
 
     //lets check for tie!
@@ -90,6 +95,8 @@ function checkGameOver(){
     if(fillCount === 9){
         gameInfo.innerText = "Game Tied"
         newGameBtn.classList.add("active");
+        newGameBtn.innerText="New Game";
+        newGameBtn.disabled=false;
     }
 
 
