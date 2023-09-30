@@ -46,30 +46,29 @@ function swapTurn(){
 
 function checkGameOver(){
     let answer = "";
+    winningPositions.forEach((position) => {
+        //all 3 boxes should be non-empty and exactly same in value
+        if( (gameGrid[position[0]] !== "" || gameGrid[position[1]] !== "" || gameGrid[position[2]] !== "") 
+            && (gameGrid[position[0]] === gameGrid[position[1]] ) && (gameGrid[position[1]] === gameGrid[position[2]])) {
 
-    winningPositions.forEach((position)=>{
-        //all 3 boxes should be non emtpy and exaxtly same in value
-        if( (gameGrid[position[0]] !== "" || gameGrid[position[1]] !== "" || gameGrid[position[2]] !== "")
-        && (gameGrid[position[0]] === gameGrid[position[1]]) && (gameGrid[position[1]] === gameGrid[position[2]])){
+                //check if winner is X
+                if(gameGrid[position[0]] === "X") 
+                    answer = "X";
+                else {
+                    answer = "O";
+                } 
+                    
 
-            //check winner
-            if(gameGrid[position[0]] === "x")
-                answer = "X";
-            else
-                answer = "O";
+                //disable pointer events
+                boxes.forEach((box) => {
+                    box.style.pointerEvents = "none";
+                })
 
-            //disable pointer events
-            boxes.forEach((box)=>{
-                box.style.pointerEvents = "none";
-            })
-
-            //now we know who is the winner
-            //mark the boxes in green
-            boxes[position[0]].classList.add("win");
-            boxes[position[1]].classList.add("win");
-            boxes[position[2]].classList.add("win");
-
-        }
+                //now we know X/O is a winner
+                boxes[position[0]].classList.add("win");
+                boxes[position[1]].classList.add("win");
+                boxes[position[2]].classList.add("win");
+            }
     });
 
     //display newgamebtn
